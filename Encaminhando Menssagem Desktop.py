@@ -2,6 +2,10 @@
 import pyautogui
 from time import sleep
 
+'''
+#Lista de Grupos/Contatos que serão Enviadas as Menssagens
+Lista_grupos = ['grupo 1','grupo 2', 'grupo 3', 'Teste']
+
 
 #***Processo manual****Compartilhar o Video do Youtube com o Número de Ofertas
 #Clicar no botão do whindows
@@ -30,54 +34,65 @@ sleep(2)
 pyautogui.write('grupo 1')
 pyautogui.click(1338,678,duration=1)
 pyautogui.click(1349,632,duration=1)
+'''
 
 
-
-
-
-"""
 #Armazenar os grupos em uma lista
 Lista_grupos = ['grupo 1','grupo 2', 'grupo 3', 'Teste']
 
-
-
-#Criar Função para executar o código
-def Encaminhar_primeira_menssagem(grupo):
-    # Mandando Menssagem pro Pimeiro Grupo
-
-    # 1 - Clicar Para encaminhar menssagem (Cordenadas: 1015,784)
-    pyautogui.click(1015,784,duration=1)
-    sleep(2)
-    # 2 - Digitar nome do Grupo
-    pyautogui.write(grupo)
-    # 3 - Selecionar Grupo
-    sleep(2)
+#Abrir WhatsApp DeskTop
+def Abrir_WhatsApp_Desktop():
+    #Clicar no botão do whindows
+    pyautogui.press('winleft')
+    #Abrir o WhatsApp Desktop
+    pyautogui.write('WhatsApp')
     pyautogui.press('enter')
-    # 4 - Encaminar (cordenadas: 1113,859)
-    pyautogui.click(1113,859,duration=1)
+    #Dar um tempo para abrir
+    sleep(10)
+    #Entrar na conversa que encaminhou o video
+    pyautogui.hotkey('ctrl','f')
+    pyautogui.write('Marcos(TI)')
+    pyautogui.click(216,174,duration=1)
 
 
-def Encaminhar_outras_menssagem(grupo):
-    # Mandando Menssagem para outros Grupos
+#Encaminhar Primeira Menssagem
+def Encaminhar_primeira_menssagem(grupo):
+    #Encaminhar Primeira Menssagem
 
-    # 1 - Clicar Para encaminhar menssagem (Cordenadas: 1390,733)
-    pyautogui.click(1393,776,duration=1)
+    # 1 - Clicar na menssagem para abrir caixa de opções(Cordenadas: 829,877)
+    pyautogui.rightClick(829,877,duration=1)
+    # 2 - Clicar em Encaminhar (Cordenadas: 899,760)
+    pyautogui.doubleClick(899,760,duration=1)
     sleep(2)
-    # 2 - Digitar nome do Grupo
+    # 3 - Escrever nome do grupo que vai ser encaminhado a menssagem
     pyautogui.write(grupo)
-    # 3 - Selecionar Grupo(Cordenadas:780,382)
+    # 4 - Seleciona ro grupo (Cordenadas: 1016,672)
+    pyautogui.click(1016,672,duration=1)
+    # 5 - Clicar em "Encaminhar Menssagem" (Cordenadas: 958,631)
+    pyautogui.click(958,631,duration=1)
+
+
+#Encaminhar Menssagens Restantes
+def Encaminhar_outras_menssagem(grupo):
     sleep(2)
-    pyautogui.click(780,382,duration=1)
-    # 4 - Encaminar (cordenadas: 1113,859)
-    pyautogui.click(1113,859,duration=1)
+    # 1 - Clicar na menssagem para abrir caixa de opções(Cordenadas: 829,877)
+    pyautogui.rightClick(1508,870,duration=1)
+    # 2 - Clicar em Encaminhar (Cordenadas: 899,760)
+    pyautogui.doubleClick(1553,729,duration=1)
+    sleep(2)
+    # 3 - Escrever nome do grupo que vai ser encaminhado a menssagem
+    pyautogui.write(grupo)
+    # 4 - Seleciona ro grupo (Cordenadas: 1016,672)
+    pyautogui.click(1338,678,duration=1)
+    # 5 - Clicar em "Encaminhar Menssagem" (Cordenadas: 958,631)
+    pyautogui.click(1349,632,duration=1)
 
 
 
-Cor_Verde = "\033[0;32m"
-#--------------------------------------EXECUÇÃO---------------------------------------------------#
-
+#Executar Comandos
 def Executar_Comandos():
-
+    #Abrir WhatsApp Desktop
+    Abrir_WhatsApp_Desktop()
     #Rodar essa lista
     for index, grupo in enumerate(Lista_grupos):
         if  index == 0:
@@ -85,8 +100,10 @@ def Executar_Comandos():
         else:
             Encaminhar_outras_menssagem(grupo)
 
-        #Printa na Tela
+        #Printa no Terminal
+        Cor_Verde = "\033[0;32m"
         print(Cor_Verde + f'Enviado com SUCESSO! *******{grupo}*******')
 
+
+#Chamando as Funções
 Executar_Comandos()
-"""
