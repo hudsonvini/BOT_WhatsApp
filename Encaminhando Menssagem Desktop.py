@@ -2,41 +2,6 @@
 import pyautogui
 from time import sleep
 
-'''
-#Lista de Grupos/Contatos que serão Enviadas as Menssagens
-Lista_grupos = ['grupo 1','grupo 2', 'grupo 3', 'Teste']
-
-
-#***Processo manual****Compartilhar o Video do Youtube com o Número de Ofertas
-#Clicar no botão do whindows
-pyautogui.press('winleft')
-#Abrir o WhatsApp Desktop
-pyautogui.write('WhatsApp')
-pyautogui.press('enter')
-#Dar um tempo para abrir
-sleep(10)
-#Entrar na conversa que encaminhou o video
-pyautogui.hotkey('ctrl','f')
-pyautogui.write('Marcos(TI)')
-pyautogui.click(216,174,duration=1)
-#Encaminhar Primeira Menssagem
-pyautogui.rightClick(829,877,duration=1)
-pyautogui.doubleClick(899,760,duration=1)
-sleep(2)
-pyautogui.write('grupo 2')
-pyautogui.click(1016,672,duration=1)
-pyautogui.click(958,631,duration=1)
-#Encaminhar Outras Menssagens
-sleep(2)
-pyautogui.rightClick(1508,870,duration=1)
-pyautogui.doubleClick(1541,731,duration=1)
-sleep(2)
-pyautogui.write('grupo 1')
-pyautogui.click(1338,678,duration=1)
-pyautogui.click(1349,632,duration=1)
-'''
-
-
 #Armazenar os grupos em uma lista
 Lista_grupos = ['grupo 1','grupo 2', 'grupo 3', 'Teste']
 
@@ -86,7 +51,6 @@ def Encaminhar_outras_menssagem(grupo):
     pyautogui.click(1338,678,duration=1)
     # 5 - Clicar em "Encaminhar Menssagem" (Cordenadas: 958,631)
     pyautogui.click(1349,632,duration=1)
-
 
 
 #Executar Comandos
